@@ -1,7 +1,7 @@
-import { BunRuntime } from "@effect/platform-bun"
-import { Effect } from "effect"
-import { App } from "@/App.ts"
+import { BunRuntime } from '@effect/platform-bun';
+import { Effect } from 'effect';
+import { App } from '@/App.ts';
 
-const program = Effect.logInfo("Starting server...").pipe(Effect.provide(App))
+const program = Effect.logInfo('Starting server...').pipe(Effect.provide(App));
 
-BunRuntime.runMain(program)
+BunRuntime.runMain(program);

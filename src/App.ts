@@ -1,3 +1,3 @@
-import { Layer } from "effect"
+import { Layer } from 'effect';
 
-export const App = Layer.empty
+export const App = Layer.empty;
