@@ -1,0 +1,29 @@
+services:
+  postgres:
+    image: postgres:18
+    container_name: backend_postgres
+    environment:
+      POSTGRES_USER: backend
+      POSTGRES_PASSWORD: backend
+      POSTGRES_DB: backend
+    ports:
+      - '5442:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  otel-lgtm:
+    image: grafana/otel-lgtm:latest
+    container_name: cosmetrik_otel_lgtm
+    ports:
+      - '4317:4317'
+      - '4318:4318'
+      - '3026:3000'
+      - '9090:9090'
+    volumes:
+      - otel_lgtm_data:/var/lib/grafana
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  otel_lgtm_data:
