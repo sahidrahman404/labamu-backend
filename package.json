@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "prepare": "effect-language-service patch && husky",
-    "test": "vitest",
+    "vitest": "vitest",
     "typecheck": "tsc --noEmit",
     "lint": "oxlint src/",
     "lint:fix": "oxlint --fix src/",
