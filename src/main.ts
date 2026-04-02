@@ -1,7 +1,5 @@
+import { HttpLayer } from '@/common/server';
 import { BunRuntime } from '@effect/platform-bun';
-import { Effect } from 'effect';
-import { App } from '@/App.ts';
+import { Layer } from 'effect';
 
-const program = Effect.logInfo('Starting server...').pipe(Effect.provide(App));
-
-BunRuntime.runMain(program);
+HttpLayer.pipe(Layer.launch, BunRuntime.runMain);
