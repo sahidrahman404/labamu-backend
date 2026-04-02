@@ -1,6 +1,7 @@
 import { ApiLayer } from '@/common/api';
 import { ConfigService } from '@/common/config-service';
 import { OtelLayer } from '@/common/otel';
+import { InvoiceHandlersDefaultLayer } from '@/invoice/handler';
 import { HttpApiBuilder, HttpApiScalar, HttpMiddleware, HttpServer } from '@effect/platform';
 import { BunContext, BunHttpServer } from '@effect/platform-bun';
 import { Effect, Layer } from 'effect';
@@ -23,7 +24,7 @@ const BunHttpServerLayer = Layer.unwrapEffect(
 );
 
 const BunHttpServerDefaultLayer = BunHttpServerLayer.pipe(
-  Layer.provideMerge(ConfigService.layer),
+  Layer.provideMerge(ConfigService.devLayer),
   Layer.provideMerge(BunContext.layer),
 );
 
@@ -32,6 +33,7 @@ export const HttpLayer = HttpApiBuilder.serve(HttpMiddleware.logger).pipe(
   Layer.provideMerge(ScalarLayer),
   Layer.provideMerge(HttpApiBuilder.middlewareOpenApi()),
   Layer.provideMerge(ApiLayer),
+  Layer.provideMerge(InvoiceHandlersDefaultLayer),
   Layer.provideMerge(OtelLayer),
   Layer.provideMerge(HttpApiBuilder.middlewareCors()),
   Layer.provideMerge(BunHttpServerDefaultLayer),
