@@ -1,3 +1,6 @@
+# Openapi Docs
+http://localhost:8000/docs
+
 # backend
 
 To install dependencies:
