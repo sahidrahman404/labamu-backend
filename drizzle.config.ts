@@ -5,10 +5,10 @@ export default defineConfig({
   schema: './src/schema/index.ts',
   out: './drizzle',
   dbCredentials: {
-    host: Bun.env['HOST'] ?? 'localhost',
-    port: Number(Bun.env['PORT'] ?? 5442),
-    user: Bun.env['USERNAME'] ?? 'backend',
-    password: Bun.env['PASSWORD'] ?? 'backend',
-    database: Bun.env['DATABASE'] ?? 'backend',
+    host: process.env['HOST'] ?? 'localhost',
+    port: Number(process.env['PORT'] ?? 5442),
+    user: process.env['USERNAME'] ?? 'backend',
+    password: process.env['PASSWORD'] ?? 'backend',
+    database: process.env['DATABASE'] ?? 'backend',
   },
 });

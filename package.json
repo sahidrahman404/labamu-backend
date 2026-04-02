@@ -9,7 +9,11 @@
     "lint": "oxlint src/",
     "lint:fix": "oxlint --fix src/",
     "fmt": "oxfmt src/",
-    "fmt:check": "oxfmt --check src/"
+    "fmt:check": "oxfmt --check src/",
+    "generate": "bunx drizzle-kit generate",
+    "migrate": "bunx drizzle-kit migrate",
+    "studio": "bunx drizzle-kit studio",
+    "custom": "bunx drizzle-kit generate --custom"
   },
   "lint-staged": {
     "*.ts": [
@@ -31,9 +35,15 @@
     "typescript": "^5"
   },
   "dependencies": {
+    "@effect/opentelemetry": "^0.63.0",
     "@effect/platform": "^0.96.0",
     "@effect/platform-bun": "^0.89.0",
     "@effect/sql-pg": "^0.52.1",
+    "@opentelemetry/exporter-logs-otlp-http": "^0.214.0",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.214.0",
+    "@opentelemetry/sdk-logs": "^0.214.0",
+    "@opentelemetry/sdk-trace-base": "^2.6.1",
+    "@opentelemetry/sdk-trace-node": "^2.6.1",
     "drizzle-orm": "1.0.0-beta.20",
     "effect": "^3.21.0",
     "pg": "^8.20.0"
